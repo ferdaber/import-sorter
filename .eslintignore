@@ -1,0 +1,5 @@
+# Ignore samples
+samples
+
+# Ignore test fixures
+**/__testfixtures__/*.js
