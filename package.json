@@ -1,26 +1,29 @@
 {
-    "name": "import-sorter",
-    "version": "0.0.1",
-    "description": "Utility to sort your imports using jscodeshift",
-    "main": "index.js",
-    "scripts": {
-        "test": "node_modules/.bin/jest"
-    },
-    "keywords": [
-        "import",
-        "sort"
-    ],
-    "author": "Ferdy Budhidharma",
-    "license": "MIT",
-    "dependencies": {
-        "jscodeshift": "^0.3.32",
-        "recast": "^0.12.6"
-    },
-    "devDependencies": {
-        "babel-core": "^6.26.0",
-        "babel-jest": "^21.0.2",
-        "babel-preset-env": "^1.6.0",
-        "eslint": "^4.7.2",
-        "jest": "^21.1.0"
-    }
+  "name": "import-sorter",
+  "version": "0.0.1",
+  "description": "Utility to sort your imports using jscodeshift",
+  "main": "index.js",
+  "scripts": {
+    "build": "node_modules/.bin/babel src --out-dir dist --source-maps inline",
+    "watch": "node_modules/.bin/babel src --out-dir dist --source-maps inline --watch",
+    "test": "node_modules/.bin/jest",
+    "start": "dist/index.js"
+  },
+  "keywords": [
+    "import",
+    "sort"
+  ],
+  "author": "Ferdy Budhidharma",
+  "license": "MIT",
+  "dependencies": {
+    "jscodeshift": "^0.3.32"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^21.0.2",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.7.2",
+    "jest": "^21.1.0"
+  }
 }

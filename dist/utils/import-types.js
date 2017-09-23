@@ -1,0 +1,7 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+const getImports = exports.getImports = (nodeArray = []) => nodeArray.filter(n => n.type === 'ImportDeclaration');
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy91dGlscy9pbXBvcnQtdHlwZXMuanMiXSwibmFtZXMiOlsiZ2V0SW1wb3J0cyIsIm5vZGVBcnJheSIsImZpbHRlciIsIm4iLCJ0eXBlIl0sIm1hcHBpbmdzIjoiOzs7OztBQUFPLE1BQU1BLGtDQUFhLENBQUNDLFlBQVksRUFBYixLQUFvQkEsVUFBVUMsTUFBVixDQUFpQkMsS0FBS0EsRUFBRUMsSUFBRixLQUFXLG1CQUFqQyxDQUF2QyIsImZpbGUiOiJpbXBvcnQtdHlwZXMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY29uc3QgZ2V0SW1wb3J0cyA9IChub2RlQXJyYXkgPSBbXSkgPT4gbm9kZUFycmF5LmZpbHRlcihuID0+IG4udHlwZSA9PT0gJ0ltcG9ydERlY2xhcmF0aW9uJylcclxuIl19

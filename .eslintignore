@@ -3,3 +3,6 @@ samples
 
 # Ignore test fixures
 **/__testfixtures__/*.js
+
+# Ignore compiled
+dist
