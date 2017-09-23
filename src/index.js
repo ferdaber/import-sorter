@@ -2,19 +2,23 @@ import j from 'jscodeshift'
 import fs from 'fs'
 import path from 'path'
 
-import { getBody, getSourceFromBody } from './utils/general'
-import { getImports } from './utils/import-types'
-import { stripSemicolons } from './utils/string-manipulations'
+import { getBody, setSourceFromBody, stripSemicolons, stripLines } from './utils/general'
+import { getImports, importSorter } from './utils/import-types'
 
 const source = fs.readFileSync(path.resolve('samples/sample-2.js')).toString(),
   src = j(source),
   body = getBody(src)
 
-// console.log(getSourceFromBody(body))
+const config = ['default', 'destructured-multi', 'destructured-single', 'namespace', 'unbound']
 
-// console.log(getImports(body))
-
-
-const spacedBody = getImports(body).reduce((a, i) => [...a, i, ' '], [])
-
-console.log(stripSemicolons(getSourceFromBody(src, spacedBody)))
+console.log(
+  stripSemicolons(
+    setSourceFromBody(src,
+      importSorter(true, config)(
+        stripLines(
+          getImports(body)
+        )
+      )
+    )
+  )
+)
