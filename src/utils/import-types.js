@@ -20,11 +20,11 @@ const categorizers = {
   'destructured-multi': isDestructuredMultiImport,
   unbound: isUnboundImport
 }
-export const categorizeImports = nodeArray => {
-  const categories = {}
-  Object.keys(categorizers).forEach(k => categories[k] = nodeArray.filter(categorizers[k]))
-  return categories
-}
+export const categorizeImports = nodeArray => Object.keys(categorizers).reduce(
+  (acc, key) => ({
+    ...acc,
+    [key]: nodeArray.filter(categorizers[key])
+  }), {})
 
 const alphaSorter = keyGetter => (a, b) =>
   keyGetter(a).toLowerCase() < keyGetter(b).toLowerCase()
@@ -56,8 +56,10 @@ const defaultImportSort = [
 ]
 
 export const importSorter = (group, importTypesArray = defaultImportSort) => nodeArray => {
-  const categories = categorizeImports(nodeArray)
-  Object.keys(categories).forEach(k => categories[k].sort(sorters[k]))
+  const categories = Object.keys(categories).reduce((acc, key) => ({
+    ...acc,
+    [key]: nodeArray.filter(categorizers[key]).sort(sorters[key])
+  }), {})
   return importTypesArray.reduce(
     (acc, type) => group
       ? acc.concat(categories[type], ' ')

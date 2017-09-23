@@ -2,7 +2,12 @@ import j from 'jscodeshift'
 import fs from 'fs'
 import path from 'path'
 
-import { getBody, setSourceFromBody, stripSemicolons, stripLines } from './utils/general'
+import {
+  getBody,
+  setSourceFromBody,
+  stripLines,
+  stripSemicolons,
+} from './utils/general'
 import { getImports, importSorter } from './utils/import-types'
 
 const source = fs.readFileSync(path.resolve('samples/sample-2.js')).toString(),
